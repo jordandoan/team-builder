@@ -6,18 +6,24 @@ const Form = (props) => {
         email: "",
         role: "",
     }
-
+    if (props.memberToEdit){
+        initial = props.memberToEdit;
+    }
+    
     let [formData, setForm] = useState(initial);
-
     let handleSubmit = (event) => {
-
-        props.setMembers([...props.members, formData]);
+        if (props.memberToEdit) {
+            props.editMember(formData);
+        } else {
+            props.setMembers([...props.members, formData]);
+        }
         props.history.push("/");
     }
     
     let handleChange = (event) => {
         setForm({...formData, [event.target.name]: event.target.value})
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

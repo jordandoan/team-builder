@@ -13,11 +13,28 @@ function App() {
     role: "Front-end Dev"
   };
   let [members, setMembers] = useState([initial]);
+  let [memberToEdit, setEdit] = useState(null);
+  let editMember = (editedMember) => {
+    setMembers(
+      members.map((member,index) => {
+        if (index == editedMember.index) {
+          return {
+            "name": editedMember.name,
+            "email": editedMember.email,
+            "role": editedMember.role
+          }
+        } else {
+          return member
+        }
+      })
+    );
+  }
+
   return (
     <div className="App">
       <NavBar/>
-      <Route exact path="/" component={(props) => <Members {...props} members={members}/>}/>
-      <Route path = "/form" component={(props) => <Form {...props} members={members} setMembers={setMembers} />}/>
+      <Route exact path="/" component={(props) => <Members {...props} members={members} setEdit={setEdit}/>}/>
+      <Route path = "/form" component={(props) => <Form {...props} members={members} setMembers={setMembers} memberToEdit={memberToEdit} editMember={editMember}/>}/>
     </div>
   );
 }

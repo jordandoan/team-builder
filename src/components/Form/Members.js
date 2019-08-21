@@ -1,8 +1,16 @@
 import React from "react";
 
-const Members = () => {
+const Members = (props) => {
     return (
-        <div>I am the members list.</div>
+        <div>I am the members list.
+            {props.members.map(member => 
+                <div>
+                    <p>Name: {member.name}</p>
+                    <p>Email: {member.email}</p>
+                    <p>Role: {member.role}</p>
+                </div>
+            )}
+        </div>
     )
 }
 

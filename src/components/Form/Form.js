@@ -8,19 +8,18 @@ const Form = (props) => {
     }
 
     let [formData, setForm] = useState(initial);
+
     let handleSubmit = (event) => {
-        event.preventDefault();
+
         props.setMembers([...props.members, formData]);
         props.history.push("/");
     }
     
     let handleChange = (event) => {
         setForm({...formData, [event.target.name]: event.target.value})
-        console.log(formData);
     }
     return (
         <div>
-            I am the forms page
             <form onSubmit={handleSubmit}>
                 <label> Name
                  <input type="text" name="name" value={formData.name} onChange={(event) => handleChange(event)}/>

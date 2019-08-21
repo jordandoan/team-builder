@@ -7,7 +7,12 @@ import Members from "./components/Form/Members";
 import Form from "./components/Form/Form";
 
 function App() {
-  let [members, setMembers] = useState([]);
+  let initial = {
+    name: "Jordan",
+    email: "jordan@email.com",
+    role: "Front-end Dev"
+  };
+  let [members, setMembers] = useState([initial]);
   return (
     <div className="App">
       <NavBar/>

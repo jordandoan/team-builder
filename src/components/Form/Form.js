@@ -9,7 +9,7 @@ const Form = (props) => {
     if (props.memberToEdit){
         initial = props.memberToEdit;
     }
-    
+
     let [formData, setForm] = useState(initial);
     let handleSubmit = (event) => {
         if (props.memberToEdit) {
@@ -19,7 +19,6 @@ const Form = (props) => {
         }
         props.history.push("/");
     }
-    
     let handleChange = (event) => {
         setForm({...formData, [event.target.name]: event.target.value})
     }

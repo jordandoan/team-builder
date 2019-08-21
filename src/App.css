@@ -22,7 +22,13 @@
 .App-link {
   color: #61dafb;
 }
+nav > * {
+  margin:10px;
+}
 
+.links * {
+  margin:5px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
